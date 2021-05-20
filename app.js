@@ -18,10 +18,14 @@ document.getElementById('submitGenre').addEventListener('click', event => {
 
 document.getElementById('submitTitle').addEventListener('click', event => {
   event.preventDefault()
-  axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${document.getElementById('submitTitle').value}`)
+  axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${document.getElementById('title').value}`)
     .then(res => {
       let results = res.data
-      console.log(results)
+      if (results.length > 1) {
+        console.log(res)
+      } else {
+        console.log(res)
+      }
       })
     .catch(err => console.error(err))
 })
