@@ -13,8 +13,15 @@ document.getElementById('submitGenre').addEventListener('click', event => {
       console.log('doesnt work')
     }
   })
+    .catch(err => console.error(err))
+})
 
-
-
-
+document.getElementById('submitTitle').addEventListener('click', event => {
+  event.preventDefault()
+  axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${document.getElementById('submitTitle').value}`)
+    .then(res => {
+      let results = res.data
+      console.log(results)
+      })
+    .catch(err => console.error(err))
 })
